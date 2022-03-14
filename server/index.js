@@ -1,16 +1,13 @@
-const express = require("express"); // Import express
-const app = express(); // Make app from express
+const express = require("express"); 
+const app = express();
 const bcrypt = require("bcrypt");
 
 const {router} =require('./routes/index');
-// const { encodePin, compare } = require("../utils/bcrypt");
 
-// const students = require("./routes/students"); // Import the student routes
 
-const port = process.env.PORT || 3001; // Define port
+const port = process.env.PORT || 3001; 
 
-app.use(express.json()); // enable read req.body (JSON)
-// Enable req.body (URL-Encoded)
+app.use(express.json());
 app.use(
   express.urlencoded({
     extended: true,
@@ -18,16 +15,8 @@ app.use(
 );
 app.use(express.static("public"));
 
-// app.get('/', (req, res) => res.send('Hello World!'))
-/* Running this app */
 
-const pass = "admin";
-// const hash=encodePin(pass);
-// const compareR= compare(pass,hash)
 
-// console.log(pass);
-
-// console.log(hash);
 
 app.use("/users", getUsers);
 
